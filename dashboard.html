@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Dashboard</title>
+      <link rel="stylesheet" href="dashboard.css" />
+      
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+      <script>
+       
+       function opentab(tabName) {
+      var i;
+      var tabContents = document.getElementsByClassName("tab-contents");
+      for (i = 0; i < tabContents.length; i++) {
+        tabContents[i].style.display = "none";
+      }
+      document.getElementById(tabName).style.display = "block";
+
+      // Remove underline from all tabs
+      var tabs = document.querySelectorAll('.course-box ul li');
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      // Add underline to the clicked tab
+      document.querySelector('.course-box ul li[data-tab="' + tabName + '"]').classList.add('active');
+
+
+    }
+
+    
+
+    function togglePasswordVisibility() {
+      var passwordElement = document.getElementById("password");
+      var showButton = document.getElementById("showButton");
+      var hideButton = document.getElementById("hideButton");
+
+      if (passwordElement.innerHTML === "") {
+        passwordElement.innerHTML = "Mk5@kp26"; 
+        showButton.style.display = "none";
+        hideButton.style.display = "inline";
+      } else {
+        passwordElement.innerHTML = "";
+        showButton.style.display = "inline";
+        hideButton.style.display = "none";
+      }
+    }
+      </script>
+    </head>
+    <body>
+      <div class="container">
+        <nav>
+          <ul>
+            <li><a href="#" class="logo">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQArCSSNkRtrwGebx50sDcwqiTS-zUT8JryqkK5qnmW_Wr2W8z_Ocz5Qr_lVUdzQYB6YCk&usqp=CAU" alt="logo">
+              <span class="nav-item">DashBoard</span>
+            </a></li>
+            <li><a href="#">
+              <i class="fas fa-home"></i>
+              <span class="nav-item">Home</span>
+            </a></li>
+            <li><a href="#">
+              <i class="fas fa-user"></i>
+              <span class="nav-item">My Profile</span>
+            </a></li>
+            <li><a href="#">
+              <i class="fas fa-wallet"></i>
+              <span class="nav-item">Fee</span>
+            </a></li>
+            <li><a href="#">
+              <i class="fas fa-chart-bar"></i>
+              <span class="nav-item">My Attendance</span>
+            </a></li>
+            <li><a href="#">
+              <i class="fas fa-tasks"></i>
+              <span class="nav-item">My Courses</span>
+            </a></li>
+            <li><a href="#">
+              <i class="fas fa-clock"></i>
+              <span class="nav-item">Classes</span>
+            </a></li>
+            <li><a href="#">
+                <i class="fas fa-cog"></i>
+                <span class="nav-item">Settings</span>
+              </a></li>
+            <li><a href="#">
+              <i class="fas fa-question-circle"></i>
+              <span class="nav-item">Help</span>
+            </a></li>
+            <li><a href="#" class="logout">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item">Log out</span>
+            </a></li>
+          </ul>
+        </nav>
+       
+       
+       
+        <section class="main">
+          <div class="main-top">
+            <h1>HOME</h1>
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="main-skills">
+            <div class="card">
+              
+              <img src="https://cdn-icons-png.freepik.com/256/10302/10302971.png?semt=ais_hybrid">
+              <h3>My Profile</h3>
+              
+              <button>My Profile</button>
+            </div>
+            <div class="card">
+              
+              <img src="https://img.freepik.com/premium-vector/wallet-logo-vector_617585-1642.jpg">
+              <h3>Fee</h3>
+              
+              <button>Fee</button>
+            </div>
+            <div class="card">
+           
+              <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/bar-chart-design-template-2e8130b6ba4f5358b409cec63815b11f_screen.jpg?ts=1635514172">
+              <h3>My Attendance</h3>
+              
+              <button>My Attendance</button>
+            </div>
+            <div class="card">
+              
+              <img src="https://t3.ftcdn.net/jpg/05/41/12/92/360_F_541129209_elvuqinzkqMDGI7P1wm1GPaaANSlJ2qk.jpg">
+              <h3>My Courses</h3>
+              
+              <button>My Courses</button>
+            </div>
+
+            <div class="card">
+             
+              <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/clock-design-template-a723b5c7ca687ed826f539aed91c0635_screen.jpg?ts=1634889642">
+              <h3>Classes</h3>
+              
+              <button>Classes</button>
+            </div>
+          </div><br><br>
+          
+          <section class="email-section">
+            <!-- Email content -->
+            <h1>Email</h1>
+            <div class="email-box">
+              <p>Email: <span>ankitalaxmi26@gmail.com</span></p><br>
+             
+
+              <p>Password: <span id="password"></span> 
+                <button id="showButton" onclick="togglePasswordVisibility()">Show</button>
+                <button id="hideButton" style="display: none;" onclick="togglePasswordVisibility()">Hide</button>
+              </p>
+            </div>
+          
+          </section><br>
+    
+      
+
+          <section class="main-course">
+            <h1>Important</h1>
+            <div class="course-box">
+              <ul>
+                <li class="active" onclick="opentab('notice')">Notice</li>
+                <li onclick="opentab('events')">Events</li>
+                <li onclick="opentab('exam')">Exam</li>
+              </ul><br>
+    
+              <div class="tab-contents active-tab" id="notice">
+                <ul>
+                  <li>No Notice for you.</li>
+                  
+                </ul>
+              </div>
+    
+              <div class="tab-contents" id="events">
+                <ul>
+                  <li>No Upcoming Events.</li>
+                  
+                  
+                </ul>
+              </div>
+    
+              <div class="tab-contents" id="exam">
+                <ul>
+                  <li>Not Scheduled.</li>
+                  
+                </ul>
+              </div>
+            </div>
+          </section>
+                  
+
+          
+        </div>
+    </div>
+
+          
+        </section>
+      </div>
+    </body>
+    </html>
+    
